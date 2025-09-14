@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "f1e11d16-d4dd-456f-b22b-9612e34597a1",
+		"name": "Яндекс Расписания",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47793834",
+		"_collection_link": "https://eweyone-7970170.postman.co/workspace/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-API~9dc79e15-bd28-41e5-9b0c-be5d36f06e2e/collection/47793834-f1e11d16-d4dd-456f-b22b-9612e34597a1?action=share&source=collection_link&creator=47793834"
+	},
+	"item": [
+		{
+			"name": "Расписание рейсов между станциями",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "1bc9652d-1360-47bb-9dad-67fad9846ee7",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{a}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.rasp.yandex.net/v3.0/search/?apikey={{key}}&format=json&from=c146&to=c213&lang=ru_RU&page=1&date=2025-08-28\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rasp",
+						"yandex",
+						"net"
+					],
+					"path": [
+						"v3.0",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "from",
+							"value": "c146"
+						},
+						{
+							"key": "to",
+							"value": "c213"
+						},
+						{
+							"key": "lang",
+							"value": "ru_RU"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "2025-08-28\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Расписание рейсов между станциями 2",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "1bc9652d-1360-47bb-9dad-67fad9846ee7",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{a}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.rasp.yandex.net/:version/search/?apikey={{key}}&format=json&from=c2&to=s2006004&lang=ru_RU&page=1&date=2025-08-28\n&transport_types=train",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rasp",
+						"yandex",
+						"net"
+					],
+					"path": [
+						":version",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "from",
+							"value": "c2"
+						},
+						{
+							"key": "to",
+							"value": "s2006004"
+						},
+						{
+							"key": "lang",
+							"value": "ru_RU"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "2025-08-28\n"
+						},
+						{
+							"key": "transport_types",
+							"value": "train"
+						}
+					],
+					"variable": [
+						{
+							"key": "version",
+							"value": "v3.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Расписание рейсов по станциям",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}v3.0/schedule/?apikey={{key}}&station=s9600213&transport_types=suburban&direction=на%20Москву\n",
+					"host": [
+						"{{BaseURL}}v3",
+						"0"
+					],
+					"path": [
+						"schedule",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "station",
+							"value": "s9600213"
+						},
+						{
+							"key": "transport_types",
+							"value": "suburban"
+						},
+						{
+							"key": "direction",
+							"value": "на%20Москву\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1 запрос для двух окружений с разными данными для 1 переменной",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "1bc9652d-1360-47bb-9dad-67fad9846ee7",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{a}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.rasp.yandex.net/v3.0/search/?apikey={{key}}&format=json&from={{FROM}}&to=c213&lang=ru_RU&page=1&date=2025-08-28\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rasp",
+						"yandex",
+						"net"
+					],
+					"path": [
+						"v3.0",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "from",
+							"value": "{{FROM}}"
+						},
+						{
+							"key": "to",
+							"value": "c213"
+						},
+						{
+							"key": "lang",
+							"value": "ru_RU"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "2025-08-28\n"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "1bc9652d-1360-47bb-9dad-67fad9846ee7",
+			"type": "string"
+		},
+		{
+			"key": "BaseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
